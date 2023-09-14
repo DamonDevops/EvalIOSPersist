@@ -25,6 +25,9 @@ class AddExpenseViewController: UIViewController {
         typeTableView.dataSource = self
         typeTableView.delegate = self
         typeTableView.register(UINib(nibName: "AddExpenseCell", bundle: nil), forCellReuseIdentifier: "AddExpenseCell")
+        
+        datePicker.minimumDate = Calendar.current.date(byAdding: .day, value: -7, to: Date())
+        datePicker.maximumDate = Calendar.current.date(byAdding: .day, value: 7, to: Date())
     }
     
     @IBAction func saveExpense(_ sender: Any) {
