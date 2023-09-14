@@ -33,7 +33,8 @@ class ExpenseListViewController: UIViewController {
         expenseTable.register(UINib(nibName: "ExpenseCell", bundle: nil), forCellReuseIdentifier: "ExpenseCell")
         
         let request = Expenses.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key: "typeForExpense.name", ascending: true)]
+        request.sortDescriptors = [NSSortDescriptor(key: "typeForExpense.name", ascending: true),
+        NSSortDescriptor(key: "date", ascending: false)]
         expenseController = NSFetchedResultsController(
             fetchRequest: request,
             managedObjectContext: DataManager.shared.context,
