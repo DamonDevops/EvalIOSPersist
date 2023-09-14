@@ -16,8 +16,8 @@ extension ExpenseTypes {
         return NSFetchRequest<ExpenseTypes>(entityName: "ExpenseTypes")
     }
 
-    @NSManaged public var name: String?
-    @NSManaged public var expensesForType: NSSet?
+    @NSManaged public var name: String
+    @NSManaged public var expensesForType: Set<Expenses>
 
 }
 
@@ -31,10 +31,10 @@ extension ExpenseTypes {
     @NSManaged public func removeFromExpensesForType(_ value: Expenses)
 
     @objc(addExpensesForType:)
-    @NSManaged public func addToExpensesForType(_ values: NSSet)
+    @NSManaged public func addToExpensesForType(_ values: Set<Expenses>)
 
     @objc(removeExpensesForType:)
-    @NSManaged public func removeFromExpensesForType(_ values: NSSet)
+    @NSManaged public func removeFromExpensesForType(_ values: Set<Expenses>)
 
 }
 

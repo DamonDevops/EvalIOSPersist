@@ -4,10 +4,10 @@
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="value" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <relationship name="typeForExpense" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ExpenseTypes"/>
+        <relationship name="typeForExpense" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ExpenseTypes" inverseName="expensesForType" inverseEntity="ExpenseTypes"/>
     </entity>
     <entity name="ExpenseTypes" representedClassName="ExpenseTypes" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="expensesForType" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expenses"/>
+        <relationship name="expensesForType" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Expenses" inverseName="typeForExpense" inverseEntity="Expenses"/>
     </entity>
 </model>
